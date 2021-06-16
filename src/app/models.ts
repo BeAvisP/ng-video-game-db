@@ -42,7 +42,7 @@ interface Screenshots {
   name: string;
 }
 
-interface Screenshots {
+interface Trailer {
   data: {
     max: string;
   };
