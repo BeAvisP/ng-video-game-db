@@ -1,6 +1,7 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment as env } from 'src/environments/environment';
 
 // The HttpHeadersInterceptor allows us to catch the request before is made and add some headers to it
 @Injectable()
@@ -14,11 +15,11 @@ export class HttpHeadersInterceptor implements HttpInterceptor {
     // The http request is cloned and some headers are added to it
     req = req.clone({
       setHeaders: {
-        'x-rapidapi-key': 'f374fc76a5msh1f2d121cbfc5833p133e8cjsn98e1ebf4ad2f',
-        'x-rapidapi-host': 'rawg-video-games-database.p.rapidapi.com',
+        'x-rapidapi-key': `${env.RAPID_API_KEY}`,
+        'x-rapidapi-host': `${env.RAPID_API_HOST}`,
       },
       setParams: {
-        key: '1ec09fd55b214dd6addf6fde0432ced5',
+        key: `${env.RAWG_KEY}`,
       },
     });
     return next.handle(req);
